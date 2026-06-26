@@ -1004,9 +1004,11 @@ a {
 
 /* Footer */
 footer {
+    position: relative;
     background-color: var(--text-main);
     color: rgba(250, 246, 240, 0.8);
     padding: 80px 0 24px;
+    overflow: hidden;
 }
 
 .footer-container {
@@ -1014,6 +1016,8 @@ footer {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     margin-bottom: 60px;
+    position: relative;
+    z-index: 5;
 }
 
 .footer-brand .logo-text {
@@ -1054,6 +1058,8 @@ footer {
     border-top: 1px solid rgba(250, 246, 240, 0.1);
     padding-top: 24px;
     font-size: 0.9rem;
+    position: relative;
+    z-index: 5;
 }
 
 /* Reveal Scroll Animations */
@@ -1570,20 +1576,18 @@ footer {
     box-shadow: var(--shadow-lg);
 }
 
-/* Footer Looping Fade Image Slider */
-.footer-slider {
-    position: relative;
+/* Footer Background Looping Fade Image Slider */
+.footer-bg-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 320px;
-    height: 180px;
-    border-radius: var(--radius-md);
+    height: 100%;
+    z-index: 1;
     overflow: hidden;
-    margin-top: 24px;
-    box-shadow: var(--shadow-sm);
-    border: 3px solid rgba(250, 246, 240, 0.1);
 }
 
-.footer-slider .slide-img {
+.footer-bg-slider .slide-img {
     position: absolute;
     top: 0;
     left: 0;
@@ -1594,12 +1598,23 @@ footer {
     animation: fadeSlider 10s infinite ease-in-out;
 }
 
-.footer-slider .slide-img:nth-child(1) {
+.footer-bg-slider .slide-img:nth-child(1) {
     animation-delay: 0s;
 }
 
-.footer-slider .slide-img:nth-child(2) {
+.footer-bg-slider .slide-img:nth-child(2) {
     animation-delay: -5s;
+}
+
+/* Semi-transparent dark overlay to keep footer text fully readable */
+.slider-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 40, 45, 0.85);
+    z-index: 3;
 }
 
 @keyframes fadeSlider {
