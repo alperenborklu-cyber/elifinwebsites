@@ -205,8 +205,10 @@ a {
 }
 
 .logo-img {
+    display: inline-block;
     height: 150px;
-    width: auto;
+    width: 150px;
+    min-width: 150px;
     object-fit: contain;
     border-radius: 8px;
 }
@@ -1117,7 +1119,10 @@ footer {
     }
     
     .logo-img {
+        display: inline-block;
         height: 100px;
+        width: 100px;
+        min-width: 100px;
     }
     
     .logo-text {
