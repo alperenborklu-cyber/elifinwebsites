@@ -558,8 +558,8 @@ a {
     font-size: 0.95rem;
 }
 
-/* Weekly Plan Column */
-.weekly-plan {
+/* Weekly Plan Gallery Grid */
+.weekly-plan.visual-gallery {
     background: var(--white);
     border-radius: var(--radius-md);
     padding: 30px;
@@ -567,42 +567,94 @@ a {
     border: 2px dashed rgba(242, 92, 84, 0.2);
 }
 
-.weekly-plan h3 {
+.weekly-plan.visual-gallery h3 {
     font-size: 1.4rem;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
-.week-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
+.weekly-plan.visual-gallery .week-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
 }
 
-.week-list li {
+.week-card {
+    position: relative;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    height: 140px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.week-card:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
+}
+
+.week-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.week-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(transparent, rgba(47, 62, 70, 0.8));
+    padding: 12px;
+    color: var(--white);
     display: flex;
-    align-items: center;
-    gap: 12px;
-    padding-bottom: 12px;
-    border-bottom: 1px dashed rgba(47, 62, 70, 0.1);
-    font-weight: 500;
+    flex-direction: column;
+    gap: 4px;
+    text-align: left;
 }
 
-.week-list li:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-
-.week-badge {
+.week-card-overlay .week-badge {
     background: var(--accent-yellow);
     color: var(--text-main);
-    padding: 4px 12px;
+    padding: 2px 8px;
     border-radius: var(--radius-pill);
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
+    font-size: 0.7rem;
     font-weight: 800;
-    flex-shrink: 0;
+    width: fit-content;
+}
+
+.week-card-overlay h4 {
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+/* Program Card adjustments for visual mode */
+.program-grid.visual-only {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.program-grid.visual-only .program-card {
+    padding: 30px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.program-grid.visual-only .program-card-icon {
+    margin-bottom: 16px;
+}
+
+@media (max-width: 576px) {
+    .weekly-plan.visual-gallery .week-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Animal Flashcards Interactive Widget */
