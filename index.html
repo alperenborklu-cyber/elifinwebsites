@@ -1,36 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KiddosApp - The Ultimate Fun Learning Experience</title>
-    <meta name="description" content="Discover KiddosApp, the best children's educational mobile app that combines fun, games, and learning in a safe environment.">
+    <title>Poppy Playroom - English Inside the Play</title>
+    <meta name="description" content="3–6 yaş arası çocuklar için oyun, kukla ve sanatın iç içe geçtiği yaratıcı İngilizce atölyesi.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="lang-tr">
 
     <!-- Header / Navigation -->
     <header class="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">
-                <span class="logo-icon">✨</span>
-                KiddosApp
+                <img src="assets/logo-children-website-app.png" alt="Poppy Playroom Logo" class="logo-img">
+                <span class="logo-text">Poppy Playroom</span>
             </a>
+            
             <nav class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#about">About</a>
-                <a href="#testimonials">Parents Love Us</a>
+                <a href="#home">
+                    <span lang="tr">Ana Sayfa</span>
+                    <span lang="en">Home</span>
+                </a>
+                <a href="#program">
+                    <span lang="tr">Program</span>
+                    <span lang="en">Program</span>
+                </a>
+                <a href="#about">
+                    <span lang="tr">Hakkında</span>
+                    <span lang="en">About</span>
+                </a>
+                <a href="#faq">
+                    <span lang="tr">SSS (FAQ)</span>
+                    <span lang="en">FAQ</span>
+                </a>
+                <a href="#contact">
+                    <span lang="tr">İletişim</span>
+                    <span lang="en">Contact</span>
+                </a>
             </nav>
-            <a href="#waitlist" class="btn btn-primary nav-cta">Join Waitlist</a>
-            <button class="mobile-menu-btn" aria-label="Toggle Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+
+            <div class="nav-actions">
+                <!-- Language Switcher Button -->
+                <button class="lang-toggle-btn" id="langToggle" aria-label="Switch Language">
+                    <span class="flag-icon">🇬🇧</span> <span class="lang-name">English</span>
+                </button>
+                <a href="#contact" class="btn btn-primary nav-cta">
+                    <span lang="tr">Kayıt Ol</span>
+                    <span lang="en">Register</span>
+                </a>
+                <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -38,31 +66,45 @@
     <section class="hero" id="home">
         <div class="container hero-container">
             <div class="hero-content reveal-left">
-                <div class="badge">🌟 New Learning Adventure</div>
-                <h1>Where Learning Feels Like <span class="highlight">Playing!</span></h1>
-                <p>Unlock your child's potential with interactive stories, colorful games, and a safe environment. Designed by educators, loved by kids.</p>
-                <div class="hero-buttons">
-                    <a href="#waitlist" class="btn btn-primary btn-large">Get Early Access</a>
-                    <a href="#features" class="btn btn-secondary btn-large">Explore Features</a>
+                <div class="badge">
+                    <span lang="tr">🌸 Oyunun Gücü Adına!</span>
+                    <span lang="en">🌸 Where English becomes play</span>
                 </div>
-                <div class="users-stats">
-                    <div class="avatars">
-                        <img src="https://i.pravatar.cc/100?img=1" alt="Parent">
-                        <img src="https://i.pravatar.cc/100?img=2" alt="Parent">
-                        <img src="https://i.pravatar.cc/100?img=3" alt="Parent">
-                        <div class="avatar-more">+500</div>
-                    </div>
-                    <span>Parents already on the waitlist!</span>
+                
+                <h1 lang="tr">İngilizce ile Tanışmanın En Doğal Yolu: <span class="highlight">Poppy Playroom</span></h1>
+                <h1 lang="en">The Most Natural Way to Learn English: <span class="highlight">Poppy Playroom</span></h1>
+                
+                <div lang="tr" class="hero-desc">
+                    <p class="subtitle">3–6 yaş arası çocuklar için oyun, kukla ve sanatın iç içe geçtiği, dilin bir "ders" değil, bir "deneyim" olduğu yaratıcı atölye.</p>
+                    <p>Burada çocuklar İngilizceyi "öğrenmiyor", İngilizceyle "oynuyor". Sanatla ellerini, hareketle bedenlerini, kuklalarla hayal güçlerini çalıştırıyorlar.</p>
+                </div>
+                <div lang="en" class="hero-desc">
+                    <p class="subtitle">A creative atelier for children aged 3–6, where play, puppets, and art come together. English is not a subject, but an experience.</p>
+                    <p>Here, children don’t “learn” English. They play with it. They use their hands through art, their bodies through movement, and their imagination through puppets.</p>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary btn-large">
+                        <span lang="tr">Bize Yazın ✨</span>
+                        <span lang="en">Write to Us ✨</span>
+                    </a>
+                    <a href="#program" class="btn btn-secondary btn-large">
+                        <span lang="tr">Programı Keşfet</span>
+                        <span lang="en">Explore Program</span>
+                    </a>
                 </div>
             </div>
+            
             <div class="hero-image reveal-right">
                 <div class="blob-bg"></div>
-                <img src="assets/hero_app_mockup.png" alt="KiddosApp Mobile App UI" class="floating-mockup">
-                <div class="floating-element el-1">⭐</div>
-                <div class="floating-element el-2">🎨</div>
-                <div class="floating-element el-3">🚀</div>
+                <!-- Cute bear reading/playing image provided in workspace -->
+                <img src="assets/cute_illustration.png" alt="Poppy Playroom Fun Illustration" class="bouncing-img hero-illustration">
+                <div class="floating-element el-1">🎨</div>
+                <div class="floating-element el-2">🎭</div>
+                <div class="floating-element el-3">🧸</div>
             </div>
         </div>
+        
         <div class="wave-divider">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                 <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,123.63,192.27,108.86,236.4,98.66,279.7,80.4,321.39,56.44Z" class="shape-fill"></path>
@@ -70,84 +112,404 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
+    <!-- Program Section -->
+    <section class="program" id="program">
         <div class="container">
             <div class="section-title reveal-up">
-                <h2>Why Kids & Parents <span class="text-gradient">Love Us</span></h2>
-                <p>Everything your child needs to grow, learn, and have fun in one magical app.</p>
+                <h2 lang="tr">Oyunun İçinde <span class="text-gradient">İngilizce</span></h2>
+                <h2 lang="en">English Inside the <span class="text-gradient">Play</span></h2>
+                
+                <p lang="tr">Poppy Playroom’da her seans, çocuğunuzun merakını uyandıracak ve onu İngilizceyle doğal bir şekilde sarmalayacak dört temel adımdan oluşur. Bizim için İngilizce bir ders konusu değil; oyunun, sanatın ve iletişimin kendisidir.</p>
+                <p lang="en">At Poppy Playroom, each session follows a simple, meaningful structure designed to naturally surround your child with English. For us, English is not a lesson—it is play, art, and communication.</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card reveal-up" style="--delay: 0.1s">
-                    <div class="feature-icon icon-purple">
-                        📚
-                    </div>
-                    <h3>Interactive Stories</h3>
-                    <p>Immersive tales that adapt to your child's choices, promoting reading comprehension and creativity.</p>
+
+            <!-- What We Do Grid -->
+            <div class="program-grid">
+                <!-- Step 1 -->
+                <div class="program-card reveal-up" style="--delay: 0.1s">
+                    <div class="program-card-icon icon-red">☀️</div>
+                    <h3 lang="tr">Neşeli Bir Başlangıç</h3>
+                    <h3 lang="en">A Joyful Start</h3>
+                    <p lang="tr">Her buluşmamıza bedenimizi ve zihnimizi hazırlayan hareketli oyunlar ve İngilizce ritimlerle başlıyoruz. Amacımız, çocuğunuzun kendini rahat ve enerjik hissetmesini sağlamak.</p>
+                    <p lang="en">We begin with movement games and English rhythms that help children feel comfortable, relaxed, and energized.</p>
                 </div>
-                <div class="feature-card reveal-up" style="--delay: 0.2s">
-                    <div class="feature-icon icon-yellow">
-                        🧩
-                    </div>
-                    <h3>Brain Games</h3>
-                    <p>Puzzles and logic games designed to sharpen cognitive skills while providing endless entertainment.</p>
+
+                <!-- Step 2 -->
+                <div class="program-card reveal-up" style="--delay: 0.2s">
+                    <div class="program-card-icon icon-yellow">🎭</div>
+                    <h3 lang="tr">Kuklaların Büyülü Dünyası</h3>
+                    <h3 lang="en">The World of Puppets</h3>
+                    <p lang="tr">Atölyemizin kalbinde kuklalarımız var. Çocuklar, yetişkinlerle kuramadıkları o eşsiz bağı kuklalarla kuruyor. İngilizceyi bir zorunluluk olarak değil, yeni bir arkadaşla sohbet etmenin yolu olarak keşfediyorlar.</p>
+                    <p lang="en">Puppets are at the heart of our atelier. Children often connect more freely with puppets than with adults, and through them they experience English as a friendly conversation—not a task.</p>
                 </div>
-                <div class="feature-card reveal-up" style="--delay: 0.3s">
-                    <div class="feature-icon icon-green">
-                        🛡️
-                    </div>
-                    <h3>100% Kid-Safe</h3>
-                    <p>No ads, no external links, and fully COPPA compliant. A secure digital playground for peace of mind.</p>
+
+                <!-- Step 3 -->
+                <div class="program-card reveal-up" style="--delay: 0.3s">
+                    <div class="program-card-icon icon-green">🎨</div>
+                    <h3 lang="tr">Yaratıcı Sanat ve Tasarım</h3>
+                    <h3 lang="en">Creative Art & Making</h3>
+                    <p lang="tr">Sadece dinlemiyoruz, üretiyoruz! Her hafta o günün hikayesini somutlaştıracak craft (el sanatları) çalışmaları yapıyoruz. Bu süreç hem motor becerilerini geliştiriyor hem de öğrenilen kavramların kalıcı olmasını sağlıyor.</p>
+                    <p lang="en">We don’t just listen, we create. Each week, children make simple craft activities that bring the story of the day to life. This supports both fine motor skills and lasting language memory.</p>
                 </div>
-                <div class="feature-card reveal-up" style="--delay: 0.4s">
-                    <div class="feature-icon icon-blue">
-                        📈
+
+                <!-- Step 4 -->
+                <div class="program-card reveal-up" style="--delay: 0.4s">
+                    <div class="program-card-icon icon-blue">🧩</div>
+                    <h3 lang="tr">Keşif Dolu Oyunlar</h3>
+                    <h3 lang="en">Playful Exploration Games</h3>
+                    <p lang="tr">Öğrendiğimiz her yeni kelimeyi, eğlenceli ve interaktif oyun kurgularıyla pekiştiriyoruz. Çocuklar farkında bile olmadan yeni dilde iletişim kurmaya başlıyorlar.</p>
+                    <p lang="en">We reinforce new words through fun, interactive games. Children begin to use English naturally without even noticing it.</p>
+                </div>
+            </div>
+
+            <!-- Structure and Timeline Box -->
+            <div class="structure-box reveal-up">
+                <div class="structure-info">
+                    <h3 lang="tr">Atölye Yapısı</h3>
+                    <h3 lang="en">Class Structure</h3>
+                    
+                    <p lang="tr" class="tagline">Bu, önceden tasarlanmış ve eksiksiz bir yolculuk olarak sunulan 6 haftalık rehberli bir atölyedir.</p>
+                    <p lang="en" class="tagline">This is a 6-week guided atelier. Designed in advance and held as a complete journey.</p>
+
+                    <div class="structure-items">
+                        <div class="struct-item">
+                            <span class="struct-icon">📅</span>
+                            <div>
+                                <h4 lang="tr">Süreklilik</h4>
+                                <h4 lang="en">Consistency</h4>
+                                <p lang="tr">Dil öğrenimi bir alışkanlık yolculuğudur. Program, birbirini takip eden ve çocukta güven duygusu oluşturan bir rutin üzerine kuruludur. Haftada 2 gün sabit saatlerde ve günlerde 6 haftalık bir programla buluşuyoruz.</p>
+                                <p lang="en">Language learning is built through routine. Our program runs twice a week, in fixed days and times, over a 6-week cycle to create a sense of safety and continuity.</p>
+                            </div>
+                        </div>
+                        <div class="struct-item">
+                            <span class="struct-icon">⚖️</span>
+                            <div>
+                                <h4 lang="tr">Denge</h4>
+                                <h4 lang="en">Balance</h4>
+                                <p lang="tr">Atölyelerimizi çocuğunuzun kendini asla dışlanmış hissetmeyeceği, ancak her an yeni bir şeyler keşfedeceği bir seviyede tutuyoruz.</p>
+                                <p lang="en">We keep activities at a level where children feel included at all times, while gently being introduced to new language and ideas.</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3>Progress Tracking</h3>
-                    <p>Weekly reports for parents to celebrate milestones and understand learning patterns.</p>
+                </div>
+
+                <!-- 6 Weeks Plan Column -->
+                <div class="weekly-plan">
+                    <h3 lang="tr">6 Haftalık Atölye Planı</h3>
+                    <h3 lang="en">6-Week Classroom Plan</h3>
+                    
+                    <ul class="week-list">
+                        <li>
+                            <span class="week-badge">Week 1</span>
+                            <span lang="tr">Renkler (Colors)</span>
+                            <span lang="en">Colors</span>
+                        </li>
+                        <li>
+                            <span class="week-badge">Week 2</span>
+                            <span lang="tr">Renkler (Colors)</span>
+                            <span lang="en">Colors</span>
+                        </li>
+                        <li>
+                            <span class="week-badge">Week 3</span>
+                            <span lang="tr">Vücut Bölümleri (Body Parts)</span>
+                            <span lang="en">Body Parts</span>
+                        </li>
+                        <li>
+                            <span class="week-badge">Week 4</span>
+                            <span lang="tr">Vücut Bölümleri (Body Parts)</span>
+                            <span lang="en">Body Parts</span>
+                        </li>
+                        <li>
+                            <span class="week-badge">Week 5</span>
+                            <span lang="tr">Zıt Kavramlar (Opposites)</span>
+                            <span lang="en">The Opposites</span>
+                        </li>
+                        <li>
+                            <span class="week-badge">Week 6</span>
+                            <span lang="tr">Zıt Kavramlar (Opposites)</span>
+                            <span lang="en">The Opposites</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Interactive Animal Flashcards Component -->
+            <div class="flashcards-section reveal-up">
+                <div class="section-title">
+                    <h3 lang="tr">Mini Oyun Odası: Hayvan Kartları</h3>
+                    <h3 lang="en">Mini Playroom: Animal Flashcards</h3>
+                    <p lang="tr">Öğrendiklerimizi eğlenceye dönüştürelim! Kartlara tıklayarak İngilizce karşılıklarını ve sevimli dostlarımızı keşfedin.</p>
+                    <p lang="en">Let's turn learning into play! Click on the cards to explore their English terms and see our cute animal friends.</p>
+                </div>
+
+                <div class="flashcards-container">
+                    <!-- Card 1 -->
+                    <div class="flashcard" data-animal="lion">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <span class="emoji">🦁</span>
+                                <p class="card-hint" lang="tr">Tıkla ve Keşfet</p>
+                                <p class="card-hint" lang="en">Click to Reveal</p>
+                            </div>
+                            <div class="card-back">
+                                <h3>Lion</h3>
+                                <p lang="tr">Aslan</p>
+                                <p lang="en">Aslan (Lion)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="flashcard" data-animal="monkey">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <span class="emoji">🐵</span>
+                                <p class="card-hint" lang="tr">Tıkla ve Keşfet</p>
+                                <p class="card-hint" lang="en">Click to Reveal</p>
+                            </div>
+                            <div class="card-back">
+                                <h3>Monkey</h3>
+                                <p lang="tr">Maymun</p>
+                                <p lang="en">Maymun (Monkey)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="flashcard" data-animal="elephant">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <span class="emoji">🐘</span>
+                                <p class="card-hint" lang="tr">Tıkla ve Keşfet</p>
+                                <p class="card-hint" lang="en">Click to Reveal</p>
+                            </div>
+                            <div class="card-back">
+                                <h3>Elephant</h3>
+                                <p lang="tr">Fil</p>
+                                <p lang="en">Fil (Elephant)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="flashcard" data-animal="rabbit">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <span class="emoji">🐰</span>
+                                <p class="card-hint" lang="tr">Tıkla ve Keşfet</p>
+                                <p class="card-hint" lang="en">Click to Reveal</p>
+                            </div>
+                            <div class="card-back">
+                                <h3>Rabbit</h3>
+                                <p lang="tr">Tavşan</p>
+                                <p lang="en">Tavşan (Rabbit)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="flashcard" data-animal="bear">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <span class="emoji">🐻</span>
+                                <p class="card-hint" lang="tr">Tıkla ve Keşfet</p>
+                                <p class="card-hint" lang="en">Click to Reveal</p>
+                            </div>
+                            <div class="card-back">
+                                <h3>Bear</h3>
+                                <p lang="tr">Ayı</p>
+                                <p lang="en">Ayı (Bear)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="flashcard" data-animal="frog">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <span class="emoji">🐸</span>
+                                <p class="card-hint" lang="tr">Tıkla ve Keşfet</p>
+                                <p class="card-hint" lang="en">Click to Reveal</p>
+                            </div>
+                            <div class="card-back">
+                                <h3>Frog</h3>
+                                <p lang="tr">Kurbağa</p>
+                                <p lang="en">Kurbağa (Frog)</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Info Section with Illustration -->
-    <section class="info-section" id="about">
-        <div class="container info-container">
-            <div class="info-image reveal-left">
-                <img src="assets/cute_illustration.png" alt="Cute Bear reading a book" class="bouncing-img">
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container about-container">
+            <div class="about-image reveal-left">
+                <!-- We can style a nice profile frame or badge -->
+                <div class="profile-card">
+                    <div class="avatar-ring">
+                        <span class="avatar-emoji">👩‍🏫</span>
+                    </div>
+                    <h3>Elif</h3>
+                    <p lang="tr">Kurucu & Eğitmen</p>
+                    <p lang="en">Founder & Educator</p>
+                </div>
             </div>
-            <div class="info-content reveal-right">
-                <h2>Spark Imagination Every Single Day</h2>
-                <p>We believe that education shouldn't feel like a chore. KiddosApp is built on the philosophy of play-based learning.</p>
-                <ul class="benefit-list">
-                    <li>
-                        <span class="check">✓</span>
-                        <strong>Expert-Crafted Curriculum:</strong> Developed with child psychologists.
-                    </li>
-                    <li>
-                        <span class="check">✓</span>
-                        <strong>Offline Mode:</strong> Learn anywhere, anytime, without WiFi.
-                    </li>
-                    <li>
-                        <span class="check">✓</span>
-                        <strong>Multi-Profile:</strong> Add up to 4 kids on a single account.
-                    </li>
-                </ul>
+            
+            <div class="about-content reveal-right">
+                <h2 lang="tr">Hakkında (<span class="text-gradient">Elif Kimdir?</span>)</h2>
+                <h2 lang="en">About <span class="text-gradient">Elif</span></h2>
+
+                <div lang="tr" class="about-bio">
+                    <p class="greeting">Merhaba, ben Elif!</p>
+                    <p>Bir eğitimciyim ve çocuklara yönelik dijital içerikler geliştiren çok disiplinli sanatçıyım.</p>
+                    <p>Lisans eğitimimi Bilkent Üniversitesi Uluslararası İlişkiler Bölümü’nde tamamladıktan sonra, yüksek lisans için Estonya’ya taşındım. Tallinn Universitesi Baltik, Medya ve Film Okulu’nda Medya ve Iletisim bolumunden mezun oldum.</p>
+                    <p>Farklı bir ülkede yaşarken yeni bir dil öğrenmek, dilin nasıl edinildiğini doğrudan deneyimlememi sağladı. Tallinn’deki çalışmalarımdan ve çocukların dil gelişim yolculuklarından aldığım ilhamla, Poppy Playroom’u kurdum.</p>
+                    <p>Poppy Playroom’da amacım, çocuklara İngilizceyi doğal bir şekilde; oyun, hikâye ve yaratıcı etkinlikler ile öğretmek.</p>
+                </div>
+
+                <div lang="en" class="about-bio">
+                    <p class="greeting">Hi, I’m Elif.</p>
+                    <p>I’m a preschool educator and a multidisciplinary artist creating digital content for children.</p>
+                    <p>I completed my BA in International Relations at Bilkent University, and later moved to Estonia for my MA in Media and Communication at Tallinn University, Baltic Film, Media and Arts School.</p>
+                    <p>Living in a different country while learning a new language gave me a direct understanding of how language is actually acquired. Inspired by this experience and by children’s language development journeys, I founded Poppy Playroom.</p>
+                    <p>At Poppy Playroom, I aim to introduce English to children in a natural way through play, storytelling and creative activities.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action / Waitlist -->
-    <section class="cta-section" id="waitlist">
-        <div class="cta-container reveal-up">
-            <h2>Be the First to Play!</h2>
-            <p>We are launching soon. Join the waitlist today and get <strong>3 months free</strong> when we go live.</p>
-            <form class="waitlist-form" id="waitlistForm">
-                <input type="email" placeholder="Enter your email address" required aria-label="Email Address">
-                <button type="submit" class="btn btn-primary">Join Waitlist ✨</button>
-            </form>
-            <p class="form-message" id="formMessage"></p>
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title reveal-up">
+                <h2 lang="tr">Sıkça Sorulan <span class="text-gradient">Sorular</span></h2>
+                <h2 lang="en">Frequently Asked <span class="text-gradient">Questions</span></h2>
+                <p lang="tr">Kafanıza takılabilecek bazı soruların yanıtları.</p>
+                <p lang="en">Answers to some questions you might have in mind.</p>
+            </div>
+
+            <div class="faq-accordion-container reveal-up">
+                <!-- Q1 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span lang="tr">Çocuğum hiç İngilizce bilmiyor, zorlanır mı?</span>
+                        <span lang="en">My child doesn't know any English, will they struggle?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p lang="tr">Kesinlikle hayır! Amacımız çocuğu anlamadığı bir dile hapsetmek değil; kuklalar, jestler ve sanat aracılığıyla dili bir oyun arkadaşına dönüştürmek.</p>
+                        <p lang="en">Absolutely not! Our goal is not to trap the child in a language they don't understand; we turn the language into a playmate through puppets, gestures, and art.</p>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span lang="tr">Neden kuklalar?</span>
+                        <span lang="en">Why puppets?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p lang="tr">Çocuklar bir yetişkinle konuşurken çekinebilirler ama bir kuklayla konuşurken kendilerini tamamen özgür hissederler. Kuklalar ve sanat, dil bariyerini yıkan en masalsı köprüdür.</p>
+                        <p lang="en">Children might feel shy talking to an adult, but they feel completely free when talking to a puppet. Puppets and art are the most magical bridge that breaks down language barriers.</p>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span lang="tr">Devamlılık neden önemli?</span>
+                        <span lang="en">Why is consistency important?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p lang="tr">Dil öğrenimi bir maraton değil, bir alışkanlıktır. Haftada 2 gün sabit saatlerde buluşarak çocuğun bu yeni dili güvenli bir rutin haline getirmesini sağlıyoruz.</p>
+                        <p lang="en">Language learning is not a marathon, it's a habit. By meeting twice a week at fixed hours, we ensure that the child turns this new language into a safe routine.</p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container contact-container">
+            <div class="contact-info reveal-left">
+                <h2 lang="tr">Oyun Arkadaşı Olmaya <span class="highlight">Hazır mısınız?</span></h2>
+                <h2 lang="en">Ready to Become a <span class="highlight">Playmate?</span></h2>
+                
+                <div lang="tr" class="contact-desc">
+                    <p class="lead">Bu küçük ve özenle yürütülen bir gruptur.</p>
+                    <p>Eğer bu yaklaşım çocuğunuzla uyumlu geliyorsa, kısa bir tanışma için bizimle iletişime geçebilirsiniz. Birlikte bunun doğru bir eşleşme olup olmadığını görebiliriz.</p>
+                    <p>Kayıt süreci, güncel saatler veya merak ettiğiniz her şey için bize yazın.</p>
+                </div>
+                
+                <div lang="en" class="contact-desc">
+                    <p class="lead">This is a small and carefully run group.</p>
+                    <p>If this approach feels right for your child, feel free to contact us for a short introduction. Together we can see if it's a good match.</p>
+                    <p>Write to us for the registration process, current hours, or anything you are curious about.</p>
+                </div>
+
+                <div class="contact-details">
+                    <div class="detail-item">
+                        <span class="detail-icon">📍</span>
+                        <span>İstanbul, Turkey</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-icon">📧</span>
+                        <span>hello@poppyplayroom.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="contact-form-box reveal-right">
+                <form class="contact-form" id="poppyContactForm">
+                    <div class="form-group">
+                        <label for="parentName">
+                            <span lang="tr">İsminiz</span>
+                            <span lang="en">Your Name</span>
+                        </label>
+                        <input type="text" id="parentName" required placeholder="Elif Yılmaz">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="childAge">
+                            <span lang="tr">Çocuğun Yaşı</span>
+                            <span lang="en">Child's Age</span>
+                        </label>
+                        <input type="number" id="childAge" min="3" max="6" required placeholder="4">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="parentEmail">
+                            <span lang="tr">E-posta Adresiniz</span>
+                            <span lang="en">Your Email</span>
+                        </label>
+                        <input type="email" id="parentEmail" required placeholder="name@domain.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userMessage">
+                            <span lang="tr">Mesajınız</span>
+                            <span lang="en">Your Message</span>
+                        </label>
+                        <textarea id="userMessage" rows="4" required placeholder="..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span lang="tr">Gönder ✨</span>
+                        <span lang="en">Send Message ✨</span>
+                    </button>
+                    
+                    <p class="form-message" id="contactFormMessage"></p>
+                </form>
+            </div>
+        </div>
+        
         <div class="confetti-container" id="confettiContainer"></div>
     </section>
 
@@ -156,34 +518,32 @@
         <div class="container footer-container">
             <div class="footer-brand">
                 <a href="#" class="logo">
-                    <span class="logo-icon">✨</span>
-                    KiddosApp
+                    <img src="assets/logo-children-website-app.png" alt="Poppy Playroom Logo" class="logo-img">
+                    <span class="logo-text" style="color: #fff;">Poppy Playroom</span>
                 </a>
-                <p>Making learning magical for children around the world.</p>
+                <p lang="tr">İngilizcenin oyuna dönüştüğü yer.</p>
+                <p lang="en">Where English becomes play.</p>
             </div>
+            
             <div class="footer-links">
                 <div class="link-group">
-                    <h4>Company</h4>
-                    <a href="#">About Us</a>
-                    <a href="#">Careers</a>
-                    <a href="#">Contact</a>
+                    <h4 lang="tr">Hızlı Bağlantılar</h4>
+                    <h4 lang="en">Quick Links</h4>
+                    <a href="#home"><span lang="tr">Ana Sayfa</span><span lang="en">Home</span></a>
+                    <a href="#program"><span lang="tr">Program</span><span lang="en">Program</span></a>
+                    <a href="#about"><span lang="tr">Hakkında</span><span lang="en">About</span></a>
                 </div>
                 <div class="link-group">
-                    <h4>Legal</h4>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">COPPA Policy</a>
-                </div>
-                <div class="link-group">
-                    <h4>Social</h4>
+                    <h4 lang="tr">Sosyal</h4>
+                    <h4 lang="en">Social</h4>
                     <a href="#">Instagram</a>
-                    <a href="#">Twitter</a>
-                    <a href="#">Facebook</a>
+                    <a href="#">Youtube</a>
                 </div>
             </div>
         </div>
+        
         <div class="footer-bottom">
-            <p>&copy; 2026 KiddosApp. All rights reserved. A concept by Elif.</p>
+            <p>&copy; 2026 Poppy Playroom. All rights reserved. Made by Elif.</p>
         </div>
     </footer>
 

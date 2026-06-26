@@ -36,92 +36,141 @@ document.addEventListener('DOMContentLoaded', () => {
             navbar.classList.remove('scrolled');
         }
     });
-    
-    // Smooth scrolling for anchor links
+
+    // --- Mobile Menu Toggle ---
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('mobile-open');
+            mobileMenuBtn.classList.toggle('active');
+        });
+
+        // Close mobile menu on clicking any link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('mobile-open');
+                mobileMenuBtn.classList.remove('active');
+            });
+        });
+    }
+
+    // --- Language Switcher Logic ---
+    const langToggle = document.getElementById('langToggle');
+    const body = document.body;
+
+    const setLanguage = (lang) => {
+        if (lang === 'en') {
+            body.classList.remove('lang-tr');
+            body.classList.add('lang-en');
+            langToggle.innerHTML = '<span class="flag-icon">🇹🇷</span> <span class="lang-name">Türkçe</span>';
+            document.documentElement.setAttribute('lang', 'en');
+        } else {
+            body.classList.remove('lang-en');
+            body.classList.add('lang-tr');
+            langToggle.innerHTML = '<span class="flag-icon">🇬🇧</span> <span class="lang-name">English</span>';
+            document.documentElement.setAttribute('lang', 'tr');
+        }
+        localStorage.setItem('poppyLang', lang);
+    };
+
+    // Initialize from localStorage or default to 'tr'
+    const savedLang = localStorage.getItem('poppyLang') || 'tr';
+    setLanguage(savedLang);
+
+    if (langToggle) {
+        langToggle.addEventListener('click', () => {
+            if (body.classList.contains('lang-tr')) {
+                setLanguage('en');
+            } else {
+                setLanguage('tr');
+            }
+        });
+    }
+
+    // --- Smooth Scrolling for Anchor Links ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const target = document.querySelector(targetId);
             if (target) {
-                target.scrollIntoView({
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
                     behavior: 'smooth'
                 });
             }
         });
     });
 
-    // --- Waitlist Form Handling ---
-    const form = document.getElementById('waitlistForm');
-    const message = document.getElementById('formMessage');
+    // --- FAQ Accordion Logic ---
+    const faqQuestions = document.querySelectorAll('.faq-question');
     
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const emailInput = form.querySelector('input[type="email"]');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const item = question.parentElement;
+            const isActive = item.classList.contains('active-faq');
             
-            if (emailInput.value) {
-                // Simulate API call
-                const btn = form.querySelector('button');
-                const originalText = btn.innerHTML;
-                btn.innerHTML = 'Sending...';
-                btn.disabled = true;
-                
-                setTimeout(() => {
-                    message.style.color = 'white';
-                    message.innerHTML = '🎉 Yay! You are on the waitlist!';
-                    form.reset();
-                    btn.innerHTML = originalText;
-                    btn.disabled = false;
-                    
-                    // Trigger confetti
-                    createConfetti();
-                }, 1000);
-            }
-        });
-    }
-
-    // --- Simple Confetti Effect ---
-    function createConfetti() {
-        const container = document.getElementById('confettiContainer');
-        if (!container) return;
-        
-        container.style.position = 'absolute';
-        container.style.top = '0';
-        container.style.left = '0';
-        container.style.width = '100%';
-        container.style.height = '100%';
-        container.style.pointerEvents = 'none';
-        container.style.zIndex = '10';
-        container.style.overflow = 'hidden';
-        
-        const colors = ['#FF7B9C', '#60D394', '#FFD97D', '#8AC4FF', '#B28DFF'];
-        
-        for (let i = 0; i < 50; i++) {
-            const confetti = document.createElement('div');
-            confetti.style.position = 'absolute';
-            confetti.style.width = Math.random() * 10 + 5 + 'px';
-            confetti.style.height = Math.random() * 10 + 5 + 'px';
-            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            confetti.style.left = Math.random() * 100 + '%';
-            confetti.style.top = '-10px';
-            confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
-            
-            // Animation
-            confetti.animate([
-                { transform: `translate3d(0, 0, 0) rotate(0deg)`, opacity: 1 },
-                { transform: `translate3d(${Math.random() * 100 - 50}px, ${window.innerHeight}px, 0) rotate(${Math.random() * 360}deg)`, opacity: 0 }
-            ], {
-                duration: Math.random() * 2000 + 1000,
-                easing: 'cubic-bezier(.37,0,.63,1)',
-                fill: 'forwards'
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(faq => {
+                faq.classList.remove('active-faq');
             });
             
-            container.appendChild(confetti);
+            // Toggle active if not previously active
+            if (!isActive) {
+                item.classList.add('active-faq');
+            }
+        });
+    });
+
+    // --- Interactive Animal Flashcards Logic ---
+    const flashcards = document.querySelectorAll('.flashcard');
+    
+    flashcards.forEach(card => {
+        card.addEventListener('click', () => {
+            card.classList.toggle('flipped');
+        });
+    });
+
+    // --- Contact Form Submission Handling ---
+    const contactForm = document.getElementById('poppyContactForm');
+    const contactMsg = document.getElementById('contactFormMessage');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
             
-            // Cleanup
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            // Language-dependent status messages
+            const isEnglish = body.classList.contains('lang-en');
+            submitBtn.innerHTML = isEnglish ? 'Sending...' : 'Gönderiliyor...';
+            submitBtn.disabled = true;
+
             setTimeout(() => {
-                confetti.remove();
-            }, 3000);
-        }
+                contactMsg.className = 'form-message success';
+                if (isEnglish) {
+                    contactMsg.innerHTML = '🎉 Your message has been sent! We will contact you soon.';
+                } else {
+                    contactMsg.innerHTML = '🎉 Mesajınız başarıyla gönderildi! En kısa sürede iletişime geçeceğiz.';
+                }
+                
+                contactForm.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+
+                // Remove feedback message after 5 seconds
+                setTimeout(() => {
+                    contactMsg.innerHTML = '';
+                }, 5000);
+            }, 1200);
+        });
     }
 });
