@@ -1551,3 +1551,22 @@ footer {
     }
 }
 
+/* Elif Bio Image Styles */
+.bio-img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    object-fit: cover;
+    border: 8px solid var(--white);
+    display: block;
+    margin: 0 auto;
+    transition: var(--transition);
+}
+
+.bio-img:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-lg);
+}
+
