@@ -26,14 +26,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Listen for scroll
     window.addEventListener('scroll', revealOnScroll);
 
-    // --- Navbar Scroll Effect ---
+    // --- Navbar Scroll & Sticky CTA Bar Effect ---
     const navbar = document.querySelector('.navbar');
+    const stickyCtaBar = document.getElementById('stickyCtaBar');
     
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
+        }
+        
+        // Show sticky bottom bar on mobile after scrolling past 300px
+        if (stickyCtaBar) {
+            if (window.scrollY > 300) {
+                stickyCtaBar.classList.add('active-bar');
+            } else {
+                stickyCtaBar.classList.remove('active-bar');
+            }
         }
     });
 
