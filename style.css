@@ -205,7 +205,7 @@ a {
 }
 
 .logo-img {
-    height: 144px;
+    height: 288px;
     width: auto;
     object-fit: contain;
     border-radius: 8px;
@@ -1117,7 +1117,7 @@ footer {
     }
     
     .logo-img {
-        height: 114px;
+        height: 228px;
     }
     
     .logo-text {
