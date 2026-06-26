@@ -1487,3 +1487,67 @@ footer {
     margin-right: 6px;
 }
 
+/* Desktop Left Sidebar Layout Override */
+@media (min-width: 993px) {
+    body {
+        padding-left: 280px;
+    }
+    
+    .navbar {
+        width: 280px;
+        height: 100vh;
+        border-bottom: none;
+        border-right: 2px solid rgba(47, 62, 70, 0.05);
+        padding: 40px 24px;
+        background: var(--bg-color);
+        box-shadow: none;
+    }
+    
+    .navbar.scrolled {
+        padding: 40px 24px;
+        box-shadow: none;
+        background: var(--bg-color);
+    }
+    
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        gap: 48px;
+        justify-content: flex-start;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .nav-links a {
+        padding: 8px 0;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .nav-actions {
+        flex-direction: column;
+        gap: 20px;
+        margin-top: auto; /* Push actions to the bottom of the viewport */
+        width: 100%;
+        align-items: center;
+    }
+    
+    .nav-actions .btn {
+        width: 100%;
+    }
+    
+    .nav-links a::after {
+        bottom: 0;
+    }
+    
+    .hero {
+        padding: 120px 0 120px;
+    }
+}
+
