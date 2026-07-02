@@ -726,6 +726,19 @@ a {
     transform: scale(1.2);
 }
 
+.flashcard-img {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    margin-bottom: 16px;
+    border-radius: var(--radius-sm);
+    transition: transform 0.3s ease;
+}
+
+.flashcard:hover .flashcard-img {
+    transform: scale(1.15);
+}
+
 .card-hint {
     font-size: 0.8rem;
     color: var(--text-muted);
