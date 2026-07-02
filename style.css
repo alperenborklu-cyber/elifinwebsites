@@ -1348,11 +1348,11 @@ footer {
 .desktop-float-bubble {
     background-color: var(--white);
     color: var(--text-main);
-    padding: 12px 18px;
+    padding: 10px 14px;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
-    font-size: 0.95rem;
-    max-width: 220px;
+    font-size: 0.76rem;
+    max-width: 176px;
     border: 2px solid rgba(112, 193, 179, 0.3);
     position: relative;
     animation: bounceBubble 5s infinite;
