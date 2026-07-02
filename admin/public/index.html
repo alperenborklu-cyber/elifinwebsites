@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poppy Playroom - Yönetim Paneli</title>
+    <title>Poppy Playroom - Görsel Editör</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,254 +11,58 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="admin-layout">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <div class="admin-logo">
-                    <span class="logo-emoji">🌸</span>
-                    <h2>Poppy Admin</h2>
-                </div>
-                <div class="server-status">
-                    <span class="status-dot online"></span>
-                    <span>Yerel Sunucu Aktif</span>
+    <div class="visual-editor-layout">
+        <!-- Top Toolbar -->
+        <header class="editor-toolbar">
+            <div class="toolbar-brand">
+                <span class="toolbar-logo">🌸</span>
+                <div class="brand-text">
+                    <h2>Poppy Editör</h2>
+                    <span class="status-indicator"><span class="dot online"></span> Görsel Düzenleme Modu</span>
                 </div>
             </div>
             
-            <nav class="sidebar-menu">
-                <button class="menu-btn active" data-tab="hero">
-                    <span class="menu-icon">✨</span> Hero (Giriş)
-                </button>
-                <button class="menu-btn" data-tab="structure">
-                    <span class="menu-icon">📐</span> Atölye Yapısı
-                </button>
-                <button class="menu-btn" data-tab="weeks">
-                    <span class="menu-icon">📅</span> 6 Haftalık Plan
-                </button>
-                <button class="menu-btn" data-tab="about">
-                    <span class="menu-icon">👩‍🏫</span> Hakkında (Elif)
-                </button>
-                <button class="menu-btn" data-tab="faqs">
-                    <span class="menu-icon">❓</span> SSS (Sorular)
-                </button>
-                <button class="menu-btn" data-tab="contact">
-                    <span class="menu-icon">📞</span> İletişim
-                </button>
-                <button class="menu-btn git-tab-btn" data-tab="deploy">
-                    <span class="menu-icon">🚀</span> GitHub'da Yayınla
-                </button>
-            </nav>
-
-            <div class="sidebar-footer">
-                <a href="/" target="_blank" class="preview-site-btn">
-                    🖥️ Siteyi Önizle
-                </a>
+            <div class="toolbar-helper">
+                <span>💡 Düzenlemek için sayfadaki herhangi bir <strong>yazıya tıklayıp yazın</strong> veya <strong>görsele tıklayıp yeni resim yükleyin</strong>.</span>
             </div>
-        </aside>
+            
+            <div class="toolbar-actions">
+                <button id="save-btn" class="btn btn-save">💾 Değişiklikleri Kaydet</button>
+                <button id="deploy-btn" class="btn btn-deploy">🚀 GitHub'da Yayınla</button>
+            </div>
+        </header>
 
-        <!-- Main Content Area -->
-        <main class="main-content">
-            <header class="main-header">
-                <h1 id="tab-title">Hero Section Düzenleme</h1>
-                <div class="header-actions">
-                    <button id="save-all-btn" class="btn btn-save">💾 Değişiklikleri Kaydet</button>
+        <!-- Live Website Preview Iframe -->
+        <div class="iframe-container">
+            <iframe id="website-iframe" src="/"></iframe>
+        </div>
+    </div>
+
+    <!-- Hidden file input for image uploads -->
+    <input type="file" id="global-image-upload" style="display: none;" accept="image/*">
+
+    <!-- Deploy Popup Modal -->
+    <div class="modal-backdrop" id="deploy-modal" style="display: none;">
+        <div class="deploy-modal-card">
+            <div class="modal-header">
+                <h3>🚀 GitHub Pages'te Canlıya Alın</h3>
+                <button class="close-modal-btn" id="close-modal-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Yaptığınız tüm değişiklikleri yerel olarak kaydettiyseniz, sitenizi GitHub Pages üzerinde internette canlıya alabilirsiniz.</p>
+                <button type="button" id="git-push-btn" class="btn btn-primary btn-large btn-full">
+                    🌐 Sitemi GitHub'a Yükle ve Yayınla
+                </button>
+                
+                <div class="console-box" id="git-console" style="display: none;">
+                    <div class="console-header">
+                        <span>Terminal Çıktısı</span>
+                        <span class="console-spinner" id="console-spinner" style="display: none;"></span>
+                    </div>
+                    <pre class="console-output" id="console-output">Yükleme bekleniyor...</pre>
                 </div>
-            </header>
-
-            <div class="content-body">
-                <form id="admin-editor-form">
-                    
-                    <!-- Hero Section Tab -->
-                    <div class="tab-pane active" id="tab-hero">
-                        <div class="lang-row">
-                            <!-- Türkçe -->
-                            <div class="lang-column">
-                                <h3 class="lang-title tr-flag">Türkçe İçerik</h3>
-                                
-                                <div class="form-group">
-                                    <label for="hero-badge-tr-input">Küçük Rozet (Badge)</label>
-                                    <input type="text" id="hero-badge-tr-input" placeholder="Oyunun Gücü Adına!">
-                                </div>
-                                <div class="form-group">
-                                    <label for="hero-title-tr-input">Ana Başlık (HTML Destekler)</label>
-                                    <textarea id="hero-title-tr-input" rows="3" placeholder="İngilizce ile Tanışmanın En Doğal Yolu..."></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="hero-desc-tr-input">Açıklama Yazısı (HTML Destekler)</label>
-                                    <textarea id="hero-desc-tr-input" rows="5" placeholder="Açıklama paragrafları..."></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="hero-btn-tr-input">Buton Metni</label>
-                                    <input type="text" id="hero-btn-tr-input" placeholder="Tanışma Formu Doldur">
-                                </div>
-                            </div>
-                            
-                            <!-- İngilizce -->
-                            <div class="lang-column">
-                                <h3 class="lang-title en-flag">İngilizce İçerik</h3>
-                                
-                                <div class="form-group">
-                                    <label for="hero-badge-en-input">Small Badge</label>
-                                    <input type="text" id="hero-badge-en-input" placeholder="Where English becomes play">
-                                </div>
-                                <div class="form-group">
-                                    <label for="hero-title-en-input">Main Title (Supports HTML)</label>
-                                    <textarea id="hero-title-en-input" rows="3" placeholder="The Most Natural Way to Learn English..."></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="hero-desc-en-input">Description Text (Supports HTML)</label>
-                                    <textarea id="hero-desc-en-input" rows="5" placeholder="Description paragraphs..."></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="hero-btn-en-input">Button Text</label>
-                                    <input type="text" id="hero-btn-en-input" placeholder="Fill Trial Form">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Atölye Yapısı Tab -->
-                    <div class="tab-pane" id="tab-structure">
-                        <div class="section-card">
-                            <h3>Genel Bilgi</h3>
-                            <div class="lang-row">
-                                <div class="form-group col-6">
-                                    <label for="struct-tagline-tr-input">Türkçe Alt Bilgi (Tagline)</label>
-                                    <input type="text" id="struct-tagline-tr-input">
-                                </div>
-                                <div class="form-group col-6">
-                                    <label for="struct-tagline-en-input">İngilizce Alt Bilgi (Tagline)</label>
-                                    <input type="text" id="struct-tagline-en-input">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="section-card mt-20">
-                            <h3>Seans Adımları (1-6)</h3>
-                            <div class="steps-container">
-                                <!-- Steps generated dynamically by JS -->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 6 Haftalık Plan Tab -->
-                    <div class="tab-pane" id="tab-weeks">
-                        <div class="weeks-grid-editor">
-                            <!-- Week cards generated dynamically by JS -->
-                        </div>
-                    </div>
-
-                    <!-- Hakkında Tab -->
-                    <div class="tab-pane" id="tab-about">
-                        <div class="lang-row">
-                            <!-- Bio Image Column -->
-                            <div class="about-image-column">
-                                <div class="image-uploader-card">
-                                    <label>Profil Fotoğrafı</label>
-                                    <div class="image-preview-container">
-                                        <img id="about-img-preview" src="" alt="Elif Gündemir">
-                                    </div>
-                                    <div class="upload-btn-wrapper">
-                                        <button class="btn btn-outline" type="button">Fotoğraf Değiştir</button>
-                                        <input type="file" id="about-img-upload" accept="image/*">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Bio Text Column -->
-                            <div class="about-text-column">
-                                <div class="lang-row">
-                                    <div class="lang-column">
-                                        <h3 class="lang-title tr-flag">Türkçe Hakkında</h3>
-                                        <div class="form-group">
-                                            <label for="about-title-tr-input">Hakkında Başlığı</label>
-                                            <input type="text" id="about-title-tr-input">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="about-bio-tr-input">Biyografi İçeriği (HTML/Paragraflar)</label>
-                                            <textarea id="about-bio-tr-input" rows="12"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="lang-column">
-                                        <h3 class="lang-title en-flag">İngilizce Hakkında</h3>
-                                        <div class="form-group">
-                                            <label for="about-title-en-input">About Title</label>
-                                            <input type="text" id="about-title-en-input">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="about-bio-en-input">Biography Content (HTML/Paragraphs)</label>
-                                            <textarea id="about-bio-en-input" rows="12"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SSS Tab -->
-                    <div class="tab-pane" id="tab-faqs">
-                        <div class="faqs-container">
-                            <!-- FAQs generated dynamically by JS -->
-                        </div>
-                    </div>
-
-                    <!-- İletişim Tab -->
-                    <div class="tab-pane" id="tab-contact">
-                        <div class="lang-row">
-                            <!-- Türkçe -->
-                            <div class="lang-column">
-                                <h3 class="lang-title tr-flag">Türkçe İletişim</h3>
-                                <div class="form-group">
-                                    <label for="contact-title-tr-input">İletişim Başlığı (HTML)</label>
-                                    <input type="text" id="contact-title-tr-input">
-                                </div>
-                                <div class="form-group">
-                                    <label for="contact-desc-tr-input">Açıklama Yazısı (HTML)</label>
-                                    <textarea id="contact-desc-tr-input" rows="6"></textarea>
-                                </div>
-                            </div>
-                            <!-- İngilizce -->
-                            <div class="lang-column">
-                                <h3 class="lang-title en-flag">İngilizce İletişim</h3>
-                                <div class="form-group">
-                                    <label for="contact-title-en-input">Contact Title (HTML)</label>
-                                    <input type="text" id="contact-title-en-input">
-                                </div>
-                                <div class="form-group">
-                                    <label for="contact-desc-en-input">Description Text (HTML)</label>
-                                    <textarea id="contact-desc-en-input" rows="6"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Deploy Tab -->
-                    <div class="tab-pane" id="tab-deploy">
-                        <div class="deploy-card">
-                            <div class="deploy-header">
-                                <span class="rocket-big">🚀</span>
-                                <h2>Değişiklikleri İnternette Yayınlayın</h2>
-                                <p>Admin panelinde yaptığınız tüm değişiklikleri kaydedip onayladıktan sonra, bu buton aracılığıyla sitenizi GitHub Pages üzerinde canlıya alabilirsiniz.</p>
-                            </div>
-                            
-                            <div class="deploy-action">
-                                <button type="button" id="git-push-btn" class="btn btn-primary btn-large">
-                                    🌐 Sitemi GitHub'a Yükle ve Yayınla
-                                </button>
-                            </div>
-
-                            <div class="console-box" id="git-console" style="display: none;">
-                                <div class="console-header">
-                                    <span>Yükleme Günlüğü (Terminal Logs)</span>
-                                    <span class="console-spinner" id="console-spinner" style="display: none;"></span>
-                                </div>
-                                <pre class="console-output" id="console-output">Bağlantı bekleniyor...</pre>
-                            </div>
-                        </div>
-                    </div>
-                </form>
             </div>
-        </main>
+        </div>
     </div>
 
     <!-- Notification Toast -->
