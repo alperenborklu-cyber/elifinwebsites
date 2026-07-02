@@ -1,4 +1,5 @@
 @echo off
+cd /d "%~dp0"
 CHCP 65001 > NUL
 title Poppy Playroom - Yönetim Paneli Başlatıcı
 echo ===================================================
