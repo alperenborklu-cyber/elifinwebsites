@@ -1515,7 +1515,8 @@ footer {
     font-family: var(--font-heading);
     font-weight: 800;
     color: var(--primary);
-    margin-right: 6px;
+    display: inline-block;
+    width: 90px;
 }
 
 /* Desktop Left Sidebar Layout Override */
