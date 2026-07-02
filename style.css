@@ -671,9 +671,21 @@ a {
 
 .flashcards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     justify-content: center;
+}
+
+@media (min-width: 600px) {
+    .flashcards-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 993px) {
+    .flashcards-container {
+        grid-template-columns: repeat(5, 1fr);
+    }
 }
 
 .flashcard {
