@@ -510,11 +510,15 @@ a {
 .program-card-img-wrapper {
     width: 100%;
     max-width: 280px;
-    height: 200px;
+    aspect-ratio: 4/3;
+    height: auto;
     overflow: hidden;
     border-radius: var(--radius-sm);
     margin: auto auto 0 auto;
     display: block;
+    /* Fix Safari/Chrome border-radius overflow bug during transition */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
 
 .program-card-img {
