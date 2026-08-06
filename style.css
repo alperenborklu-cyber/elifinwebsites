@@ -206,9 +206,9 @@ a {
 
 .logo-img {
     display: inline-block;
-    height: 150px;
-    width: 150px;
-    min-width: 150px;
+    height: 100px;
+    width: 100px;
+    min-width: 100px;
     object-fit: contain;
     border-radius: 8px;
 }
@@ -509,10 +509,11 @@ a {
 
 .program-card-img-wrapper {
     width: 100%;
+    max-width: 280px;
     height: 200px;
     overflow: hidden;
     border-radius: var(--radius-sm);
-    margin-top: auto;
+    margin: auto auto 0 auto;
     display: block;
 }
 
@@ -661,8 +662,18 @@ a {
 
 /* Program Card adjustments for visual mode */
 .program-grid.visual-only {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .program-grid.visual-only {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .program-grid.visual-only .program-card {
@@ -1182,9 +1193,9 @@ footer {
     
     .logo-img {
         display: inline-block;
-        height: 100px;
-        width: 100px;
-        min-width: 100px;
+        height: 70px;
+        width: 70px;
+        min-width: 70px;
     }
     
     .logo-text {
